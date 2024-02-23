@@ -1,0 +1,44 @@
+<!-- Header Start -->
+<div class="container-fluid bg-primary p-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="text-center mb-3">
+                <h1 class="display-3 text-white animated slideInDown">Đăng ký</h1>
+            </div>
+            <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
+                <form action="">
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="usernameInput" placeholder="Tài khoản" id="username"
+                            ng-model="username">
+                        <label for="floatingInput">Tài khoản</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Mật khẩu"
+                            id="password" ng-model="password">
+                        <label for="floatingInput">Mật khẩu</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="fullnameInput" placeholder="Họ và tên" id="fullname"
+                            ng-model="fullname">
+                        <label for="floatingInput">Họ và tên</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="email" class="form-control" id="emailInput" placeholder="email" id="email"
+                            ng-model="email">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <select class="form-select form-select-lg mb-3" ng-model="selectedGender">
+                        <option ng-repeat="gender in genderOptions" value="{{ gender }}">{{ gender }}</option>
+                    </select>
+                    <div class="form-floating mb-2">
+                        <input type="date" class="form-control" id="BirthdayInput" placeholder="Ngày sinh" id="birthday"
+                            ng-model="birthday">
+                        <label for="floatingInput">Ngày sinh</label>
+                    </div>
+                    <button class="btn btn-primary me-2" ng-click="submit()" type="button">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->

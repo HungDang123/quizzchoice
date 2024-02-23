@@ -1,0 +1,48 @@
+{
+  "user": [
+    {
+      "username": "hungdt",
+      "password": "CrrRvD",
+      "fullname": "hung",
+      "email": "hungdtps30247@fpt.edu.vn",
+      "gender": "true",
+      "birthday": "2004-9-14",
+      "schoolfee": "1500000",
+      "marks": "0",
+      "id": "fc5d"
+    },
+    {
+      "username": "pheonv",
+      "password": "iloveyou",
+      "fullname": "Nguyễn Văn Chí Phèo",
+      "email": "pheonv@fpt.edu.vn",
+      "gender": "true",
+      "birthday": "1985-10-11",
+      "schoolfee": "2500000",
+      "marks": "0",
+      "id": "cd59"
+    },
+    {
+      "username": "nopt",
+      "password": "iloveyou",
+      "fullname": "Phạm Thị Nở",
+      "email": "nopt@fpt.edu.vn",
+      "gender": "false",
+      "birthday": "1993-05-15",
+      "schoolfee": "2000000",
+      "marks": "0",
+      "id": "ed83"
+    },
+    {
+      "id": "eEBM",
+      "username": "hungdang",
+      "password": "hung",
+      "fullname": "Hùng Đặng",
+      "email": "hungdangak1509@gmail.com",
+      "gender": true,
+      "birthday": "2024-01-16T17:00:00.000Z",
+      "schoolfee": 0,
+      "marrks": 0
+    }
+  ]
+}

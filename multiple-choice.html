@@ -1,0 +1,267 @@
+<div class="d-flex" ng-if="isLoggedIn == true">
+    <!-- Service Start -->
+    <div class="container-xxl py-5" ng-if="handed == false">
+        <div class="border border-2 rounded-sm bg-light">
+            <div class="container">
+                <p class="float-end top-0 wow fadeInUp h3 text-danger" data-wow-delay="0.3s" id="time">Thời gian làm
+                    bài:
+                    {{timeHanded}}</p>
+                <p class="text-center wow fadeInUp mt-4 mb-4 h3 " data-wow-delay="0.3s">{{nameSUB}}</p>
+                <p class="text wow fadeInUp m-4 h5" wow fadeInUp m-4 h3" data-wow-delay="0.3s">Câu {{currentIndex+1}}:
+                    {{currentQuestion.Text}}</p>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 border border-2"
+                        ng-if="currentQuestion.Answers.length == 4" ng-repeat="questions in currentQuestion.Answers"
+                        id="answer">
+                        <div class="service-item text-center pt-3 cursor-default" ng-click="checkAnswer(questions.Id)"
+                            ng-style="getStyle()">
+                            <div class="p-4" id="{{questions.Id}}">
+                                <p>{{questions.Text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 border border-2"
+                        ng-if="currentQuestion.Answers.length == 2" ng-repeat="questions in currentQuestion.Answers"
+                        id="answer">
+                        <div class="service-item text-center pt-3 cursor-default" ng-click="checkAnswer(questions.Id)"
+                            ng-style="getStyle()">
+                            <div class="p-4" id="{{questions.Id}}">
+                                <p>{{questions.Text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 border border-2"
+                        ng-if="currentQuestion.Answers.length == 3" ng-repeat="questions in currentQuestion.Answers"
+                        id="answer">
+                        <div class="service-item text-center pt-3 cursor-default" ng-click="checkAnswer(questions.Id)"
+                            ng-style="getStyle()">
+                            <div class="p-4" id="{{questions.Id}}">
+                                <p>{{questions.Text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 border border-2"
+                        ng-if="currentQuestion.Answers.length > 4" ng-repeat="questions in currentQuestion.Answers"
+                        id="answer">
+                        <div class="service-item text-center pt-3 cursor-pointer" ng-click="checkAnswer(questions.Id)"
+                            ng-style="getStyle()">
+                            <div class="pe-2" id="{{questions.Id}}">
+                                <p>{{questions.Text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center wow fadeInUp mt-4" data-wow-delay="0.3s">
+            <button class="btn btn-primary" ng-click="first()"><i class="bi bi-skip-backward-fill"></i> Câu đầu</button>
+            <button class="btn btn-primary ms-3 me-3" ng-click="prev()"><i class="bi bi-skip-start-fill"></i> Câu
+                sau</button>
+            <button class="btn btn-primary" ng-click="next()"><i class="bi bi-skip-end-fill"></i> Câu trước</button>
+            <button class="btn btn-primary ms-3 me-3" ng-click="last()"><i class="bi bi-skip-forward-fill"></i> Câu
+                cuối</button>
+            <button class="btn btn-primary" ng-click="handIn()"><i class="bi bi-box-arrow-up"></i> Nộp bài</button>
+        </div>
+    </div>
+    <!-- -->
+    <div class="container-xxl py-5" ng-if="handed === true">
+        <div class="border border-2 rounded-sm bg-light">
+            <div class="container">
+                <p class="h3 wow fadeInUp mt-4 mb-4 h3 text-center" data-wow-delay="0.3s">Bạn đã làm xong bộ câu hỏi này
+                </p>
+                <div class="row g-4 container m-auto d-flex justify-content-center w-50 mb-3">
+                    <!-- <div class="col-4">
+                        <p class="text-center wow fadeInUp mt-3 h5 " data-wow-delay="0.3s">Điểm của bạn:
+                            {{totalPoint}}/10
+                            <i class="bi bi-pen-fill"></i>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p class="wow fadeInUp h5 text-danger mt-3" data-wow-delay="0.3s" id="time">Thời gian đã
+                            làm
+                            bài:
+                            {{renderTime }} <i class="bi bi-stopwatch-fill"></i></p>
+                    </div> -->
+                    <div class="col-12  bg-dark " style="height: 120px;">
+                        <div class="p-4 m-2 d-flex">
+                            <img src="img/h1.jpg" alt=""
+                                class="border border-light border-4 h-auto rounded-circle wow fadeInUp"
+                                style="width: 50px; height: 50px;" data-wow-delay="0.3s">
+                            <p class="h5 wow fadeInUp h5 text-light ms-2" data-wow-delay="0.3s">{{student}}</p>
+                        </div>
+                    </div>
+                    <div class="col-12  rounded bg-dark " style="height: 120px;">
+                        <label for="" class="h5 wow fadeInUp mt-3 h5 text-light" data-wow-delay="0.3s">Câu đúng <i
+                                class="bi bi-info-circle"></i></label>
+                        <div class="skills mt-3">
+                            <div class="skill">
+                                <div class="skill-bar">
+                                    <div class="skill-per" ng-attr-per="{{percent}}"
+                                        ng-style="{ 'max-width': percent }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  rounded d-flex justify-content-between bg-dark" style=" height: 120px;">
+                        <div class="col-2">
+                            <label for="" class="h5 wow fadeInUp mt-3 h5 text-light" data-wow-delay="0.3s">Điểm
+                                số</label><br>
+                            <label for="" class="h5 wow fadeInUp mt-3 h5 text-light"
+                                data-wow-delay="0.3s">{{totalPoint}}</label>
+                        </div>
+                        <div class="col-2 d-flex justify-content-end text-primary">
+                            <div class="wow fadeInUp mt-3 h5" data-wow-delay="0.3s">
+                                <br><br>
+                                <i class="bi bi-database-fill text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border border-2">
+            <div class="d-flex justify-content-center wow fadeInUp mt-4" data-wow-delay="0.3s">
+                <button class="btn btn-primary" ng-click="again()"> <i class="bi bi-arrow-clockwise"></i> Làm
+                    lại</button>
+                <button class="btn btn-primary ms-3 me-3" ng-click="showAnswer()"><i class="bi bi-view-list"></i> Xem
+                    đáp án
+                </button>
+                <button class="btn btn-primary" ng-click="showRank()" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"><i class="bi bi-award-fill"></i></i> Bảng xếp
+                    hạng
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Bảng xếp hạng</h1>
+                                <button ng-click="showRecord()" type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close" ></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="card-header">Môn {{nameSUB}}</div>
+                                    <div class="card-body">
+                                        <table class="table table-dark table-striped-columns mt-3">
+                                            <thead>
+                                                <td>Rank</td>
+                                                <td class="text-center">Họ và tên</td>
+                                                <td class="text-center">Tổng điểm</td>
+                                                <td class="text-center">Thời gian</td>
+                                            </thead>
+                                            <tbody ng-repeat="r in rank">
+                                                <td>{{$index + 1}}</td>
+                                                <td class="text-center">{{r.fullname}}</td>
+                                                <td class="text-center">{{r.point}}</td>
+                                                <td class="text-center">{{r.time}} giây</td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <h3>Đặng Thành Hùng</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center wow fadeInUp mt-4 row w-75 m-auto" data-wow-delay="0.3s">
+                <p class="h3 wow fadeInUp mt-4 mb-4 h3 text-center" data-wow-delay="0.3s">Số liệu thống kê hiệu suất</p>
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="bg-success text-center pt-3 cursor-default mb-4 text-light"
+                        style="max-height: 70px; width: 200px;">
+                        <div class="">
+                            <h5><strong>{{historyQuestionRight.length}}</strong></h5>
+                            <p>Câu đúng</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="bg-danger text-center pt-3 cursor-default mb-4 text-light"
+                        style="max-height: 70px; width: 200px;">
+                        <div class="">
+                            <h5><strong>{{currentQuestionWrong}}</strong></h5>
+                            <p>Sai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="bg-primary text-center pt-3 cursor-default mb-4 text-light"
+                        style="max-height: 70px; width: 200px;">
+                        <div class="">
+                            <h5><strong>{{timePerSec}}</strong></h5>
+                            <p>Thời gian / giây</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="show == true" ng-repeat="questions in historyQuestion.answers">
+                <div class="pt-3">
+                    <div class="h-100 p-4 border rounded-3 s-color">
+                        <h4 class="mb-3">{{questions.Text}}</h4>
+                        <p ng-repeat="single in questions.Answers" ng-if="single.Id === questions.AnswerId">
+                            Đáp án đúng: <span class="fw-bold">{{single.Text}}</span>
+                        </p>
+                        <p class="text-success" ng-repeat="single in historyQuestionRight"
+                            ng-if="single.answers === questions.AnswerId">
+                            <i class="bi bi-check-square"></i> Bạn chọn đúng 
+                        </p>
+                        <p class="text-danger" ng-repeat="single in historyQuestionWrong"
+                            ng-if="single.questionId === questions.Id">
+                            <i class="bi bi-x-square"></i> Bạn chọn sai 
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Service End -->
+<div class="container-xxl py-5" ng-if="isLoggedIn == false || isLoggedIn == null">
+    <!-- Header Start -->
+    <!-- <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Not Found</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">404</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Header End -->
+
+
+    <!-- 404 Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
+                    <h1 class="display-1">404</h1>
+                    <h1 class="mb-4">Trang không tồn tại</h1>
+                    <p class="mb-4">Chúng tôi rất tiếc, trang bạn đã tìm kiếm không tồn tại trong trang web của chúng tôi! Có thể truy cập trang chủ của chúng tôi hoặc cố gắng sử dụng tìm kiếm?
+                    </p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5" href="index.html">Quay về trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 404 End -->
+</div>

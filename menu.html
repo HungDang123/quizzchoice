@@ -1,0 +1,43 @@
+<a href="index.html" class="navbar-brand d-flex justify-content-center px-4 px-lg-5">
+    <img src="img/logo.png" alt="" class="image-thumb">
+</a>
+<button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarCollapse" ng-controller="ctrl-logout">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <a href="#!home" class="nav-item nav-link active"> <i class="bi bi-house-fill"></i> Trang chủ</a>
+        <a href="#!introduce" class="nav-item nav-link"> <i class="bi bi-info-circle-fill"></i> Giới thiệu</a>
+        <a href="#!contact" class="nav-item nav-link"><i class="bi bi-telephone-fill"></i> Liên hệ</a>
+        <a href="#!courses" class="nav-item nav-link"><i class="bi bi-mortarboard-fill"></i> </i> Khóa học</a>
+        <a href="#!qa" class="nav-item nav-link"> <i class="bi bi-question-circle-fill"> </i> Hỏi đáp</a>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="account" data-bs-toggle="dropdown"
+                ng-if="nameOfStu !== null">Xin chào
+                {{nameOfStu}}</a>
+                <a href="#" class="nav-link dropdown-toggle" id="account" data-bs-toggle="dropdown"
+                ng-if="nameOfStu == null">Tài khoản</a>
+            <div class="dropdown-menu fade-down m-0">
+                <a href="#!change-password" class="dropdown-item">Đổi mật khẩu</a>
+                <a href="#!update" class="dropdown-item">Cập nhật tài khoản</a>
+                <a href="#" class="dropdown-item" ng-click="logout()">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+    <!-- Hiển thị khi đã đăng nhập -->
+    <a href="#!login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" id="sign-in"
+        ng-if="isLoggedIn == false || isLoggedIn == null">Đăng nhập<i class="fa fa-arrow-right ms-3"></i></a>
+    <a href="#!login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" id="sign-in" ng-click="logout()"
+        ng-if="isLoggedIn">Đăng xuất<i class="fa fa-arrow-right ms-3"></i></a>
+    <!-- Hiển thị khi chưa đăng nhập -->
+    <!-- <a href="#!login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" ng-if="!isLoggedIn">Đăng nhập<i
+            class="fa fa-arrow-right ms-3"></i></a> -->
+</div>
+<script>
+    $(document).ready(function () {
+        $('.navbar-nav a').on('click', function () {
+            $('.navbar-nav a').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>

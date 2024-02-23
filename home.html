@@ -1,0 +1,137 @@
+<!-- Carousel Start -->
+
+<div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="img/slide1.jpg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgb(50 46 31 / 60%);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Khóa học trực tuyến tốt
+                                nhất
+                            </h5>
+                            <h1 class="display-3 text-white animated slideInDown">Nền tảng học trực tuyến tốt nhất
+                            </h1>
+                            <p class="fs-5 text-white mb-4 pb-2"> fLearning cung cấp một bộ câu hỏi đa dạng về nhiều chủ
+                                đề và mức độ khó khác nhau, giúp người học có cơ hội ôn tập từ cơ bản đến nâng cao..</p>
+                            <a href="https://fpt.edu.vn/" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Đọc thêm</a>
+                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Tham gia ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="img/slide2.jpg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgb(50 46 31 / 60%);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Khóa học trực tuyến tốt
+                                nhất
+                            </h5>
+                            <h1 class="display-3 text-white animated slideInDown">Được giáo dục trực tuyến từ nhà của
+                                bạn
+                            </h1>
+                            <p class="fs-5 text-white mb-4 pb-2"> fLearning cung cấp các chế độ ôn luyện khác nhau như
+                                chế độ thi giả mạo, ôn tập linh hoạt, và kiểm tra ngẫu nhiên để người học có cơ hội ôn
+                                tập theo nhiều cách.</p>
+                            <a href="https://fpt.edu.vn/" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Đọc thêm</a>
+                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Tham gia ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Khóa học</h6>
+            <h1 class="mb-5">Khóa học nổi tiếng</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-3 col-md-6 wow fadeInUp border-1" data-wow-delay="0.1s"
+                ng-repeat="sub in subjects | orderBy:'Id'|limitTo:8:start">
+                <div class=" course-item bg-light">
+                    <div class="position-relative overflow-hidden text-center">
+                        <img class="img-fluid image-thumb w-40 mb-5" src="img/logo/{{sub.Logo}}" alt=""
+                            style="width: 200px;">
+                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mt-4">
+                            <a href="#!multiple-choice/{{sub.Id}}/{{sub.Name}}"
+                                class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end w-50" ng-click="">Làm trắc
+                                nghiệm</a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 pb-0">
+                        <h5 class="mb-4">{{sub.Name}}</h5>
+                    </div>
+                    <div class="d-flex border-top border-2">
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-user-tie text-primary me-2"></i>Hùng Đặng</small>
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-clock text-primary me-2"></i>15 minutes</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
+                            Students</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Courses Start -->
+<!-- <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Khóa học</h6>
+            <h1 class="mb-5">Khóa học nổi tiếng</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-3 col-md-6 wow fadeInUp border-1" data-wow-delay="0.1s"
+                ng-repeat="sub in subjects | orderBy:'Id'|limitTo:8:start">
+                <div class=" course-item bg-light">
+                    <div class="position-relative overflow-hidden text-center">
+                        <img class="img-fluid image-thumb w-40 mb-5" src="img/logo/{{sub.Logo}}" alt="">
+                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mt-4">
+                            <a href="#!multiple-choice/{{sub.Id}}/{{sub.Name}}"
+                                class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end w-50" ng-click="">Làm trắc
+                                nghiệm</a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 pb-0">
+                        <h5 class="mb-4">{{sub.Name}}</h5>
+                    </div>
+                    <div class="d-flex border-top border-2">
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-user-tie text-primary me-2"></i>Hùng Đặng</small>
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-clock text-primary me-2"></i>15 minutes</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
+                            Students</small>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center wow fadeInUp" data-wow-delay="0.3s">
+                <button class="btn btn-primary ms-3 me-3" ng-click="prevSubject()">Prev <i
+                        class="bi bi-skip-start-fill"></i></button>
+                <button class="btn btn-primary" ng-click="nextSubject()">Next <i class="bi bi-skip-end-fill"></i></button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Carousel End -->
+<!-- Testimonial End --><!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+<script src="js/app.js"></script>

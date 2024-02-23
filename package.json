@@ -1,0 +1,19 @@
+{
+  "name": "elearning-1.0.0",
+  "version": "1.0.0",
+  "description": "fake rest api",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "json:server": "json-server --watch db/Students.json",
+    "json:record": "json-server --watch db/record.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.19",
+    "ngx-cookie-service": "^17.0.1"
+  }
+}
